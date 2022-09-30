@@ -1,0 +1,132 @@
+//Topic: OOP
+//Description: Creating classes and objects.
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+class Car
+{
+    private:
+        string color;
+        int speed;
+        bool isEngineOn;
+
+    public:
+        Car();
+        Car(string c);
+
+        void acceleration();
+        void applyBreak();
+        int getSpeed();
+        void startEngine();
+        void stopEngine();
+        string toString();
+};
+
+Car::Car()
+{
+    color = "Gray";
+    speed = 0;
+    isEngineOn = false;
+}
+
+Car::Car(string c)
+{
+    color = c;
+    speed = 0;
+    isEngineOn = false;
+}
+
+void Car::acceleration()
+{
+    if (isEngineOn)
+    {
+        speed += 10;
+    }
+}
+
+void Car::applyBreak()
+{
+    if (speed - 8 >= 0)
+    {
+        speed -= 8;
+    }
+
+    else
+    {
+        speed = 0;
+    }
+}
+
+int Car::getSpeed()
+{
+    return speed;
+}
+
+void Car::startEngine()
+{
+    if (!isEngineOn)
+    {
+        isEngineOn = true;
+    }
+}
+
+void Car::stopEngine()
+{
+    if (isEngineOn)
+    {
+        isEngineOn = false;
+        speed = 0;
+    }
+}
+
+string Car::toString()
+{
+    ostringstream oss;
+    oss << "Color = " << color << endl;
+    oss << "Current Speed = " << speed << endl;
+
+    if (isEngineOn)
+    {
+        oss << "Engine is on" << endl;
+    }
+    else
+    {
+        oss << "Engine is off" << endl;
+    }
+
+    return oss.str();
+}
+
+int main()
+{
+    Car car1;
+    cout << car1.toString() << endl;
+
+    car1.startEngine();
+    car1.acceleration();
+    car1.applyBreak();
+    cout << car1.toString() << endl;
+
+    Car car2("Red");
+    cout << car2.toString() << endl;
+
+    car2.startEngine();
+    car2.acceleration();
+    car2.acceleration();
+    car2.applyBreak();
+    cout << car2.toString() << endl;
+
+    Car car3("Yellow");
+    cout << car3.toString() << endl;
+
+    car3.startEngine();
+    car3.acceleration();
+    car3.stopEngine();
+    cout << car3.toString() << endl;
+
+}
+
