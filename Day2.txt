@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+class Circle
+{
+    private:
+        int radius;
+        double area;
+
+    public:
+        Circle();
+        Circle(int radius);
+
+        void calculateArea();
+        void display();
+        Circle operator+(Circle rho);
+        Circle operator-(Circle rho);
+};
+
+Circle::Circle()
+{
+    this->radius = 1;
+}
+
+Circle::Circle(int radius)
+{
+    this->radius = radius;
+}
+
+void Circle::calculateArea()
+{
+    this->area = 3.14 * radius * radius;
+}
+
+void Circle::display()
+{
+    cout << "Radius: " << radius << endl;
+    cout << "Area: " << area << endl;
+}
+
+Circle Circle::operator+(Circle rho)
+{
+    Circle result;
+    result.radius = this->radius + rho.radius;
+    return result;
+}
+
+Circle Circle::operator-(Circle rho)
+{
+    Circle result;
+    result.radius = abs(this->radius - rho.radius);
+    return result;
+}
+
+int main()
+{
+    Circle c1(2);
+    c1.calculateArea();
+    c1.display();
+
+    Circle c11(3), c12(6), c13;
+    c13 = c11 + c12; //c11.operator+(c12)
+    c13.display();
+
+    Circle c21(3), c22(10), c23;
+    c23 = c21 - c22; //c21.operator-(c22)
+    c23.display();
+
+    return 0;
+}
