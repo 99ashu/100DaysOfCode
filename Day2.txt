@@ -1,5 +1,5 @@
-//OOP
-//Operator Overloading
+//Topic: OOP
+//Description: Operator Overloading
 
 #include <iostream>
 #include <cmath>
