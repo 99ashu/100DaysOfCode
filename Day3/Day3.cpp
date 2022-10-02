@@ -1,3 +1,6 @@
+//Topic: OOP
+//Description: Inheritance
+
 #include<iostream>
 using namespace std;
 
