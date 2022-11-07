@@ -18,7 +18,7 @@ int main()
     vector <int> v;
 
     ifstream fin;
-	fin.open("1 - data.txt");
+	fin.open("Day11_data.txt");
 
     if (!fin){
         cout << "Unable to open file" << endl;
